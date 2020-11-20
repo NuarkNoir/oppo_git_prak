@@ -22,6 +22,9 @@ double my_pow(double num, int pow) {
             out *= num;
         }
     }
-
-    return out;
+    if (pow == 1) {
+        return num;
+    }
+    double oneHalf = my_pow(num, pow/2);
+    return oneHalf * oneHalf * my_pow(num, pow%2);
 }
