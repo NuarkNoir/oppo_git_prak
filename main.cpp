@@ -8,11 +8,12 @@ int main() {
 }
 
 double my_pow(double num, unsigned int pow) {
-    double out = num;
-
-    for (int i = 1; i < pow; i++) {
-        out *= num;
+    if (pow == 0) {
+        return 1;
     }
-
-    return out;
+    if (pow == 1) {
+        return num;
+    }
+    double oneHalf = my_pow(num, pow/2);
+    return oneHalf * oneHalf * my_pow(num, pow%2);
 }
